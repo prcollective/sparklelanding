@@ -86,7 +86,7 @@ export default function Home(): ReactElement {
   }, [])
 
   const handleClick = () => {
-    window.open('https://t.me/BlazerSolBot', '_blank')
+    window.open('https://t.me/BlazerBotSolBot', '_blank')
   }
 
   const LightningIcon = () => (
@@ -115,7 +115,7 @@ export default function Home(): ReactElement {
       )
     },
     {
-      title: 'Advanced TG Commands',
+      title: 'Simplifed TG Commands',
       description: 'Sophisticated trading commands optimized for Solana DeFi markets and token pairs.',
       icon: (
         <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -165,7 +165,7 @@ export default function Home(): ReactElement {
             {/* Left column content */}
             <div className="relative text-center lg:text-left mt-6 sm:mt-0">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4 sm:mb-8">
-                <span className="block text-white">{'Trade on TG.'}</span>
+                <span className="block text-white">{'Trade on SOL.'}</span>
                 <span 
                   ref={fasterRef}
                   className={`block bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text transition-all duration-1000 transform ${
@@ -403,10 +403,10 @@ export default function Home(): ReactElement {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-white sm:text-4xl">
-              {'Advanced Trading Features'}
+              {'Telegram Trading Features'}
             </h2>
             <p className="mt-4 text-lg text-gray-400">
-              {'Built for professional Solana TG traders'}
+              {'Built for Solana TG traders to be ahead in the meme trading trenches'}
             </p>
           </div>
 
