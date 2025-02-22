@@ -52,9 +52,9 @@ function AnimatedCounter({ end, duration = 2000, prefix = '', suffix = '', decim
   )
 }
 
-export default function Home(): ReactElement {
-  const [isPhoneVisible, setIsPhoneVisible] = useState(false)
-  const [isFasterVisible, setIsFasterVisible] = useState(false)
+export default function Page(): ReactElement {
+  const [isPhoneVisible, setIsPhoneVisible] = useState<boolean>(false)
+  const [isFasterVisible, setIsFasterVisible] = useState<boolean>(false)
   const phoneRef = useRef<HTMLDivElement>(null)
   const fasterRef = useRef<HTMLDivElement>(null)
 
@@ -86,7 +86,7 @@ export default function Home(): ReactElement {
   }, [])
 
   const handleClick = () => {
-    window.open('https://t.me/BlazerBotSolBot', '_blank')
+    window.open('https://t.me/BlazerSolBot', '_blank')
   }
 
   const LightningIcon = () => (
@@ -115,7 +115,7 @@ export default function Home(): ReactElement {
       )
     },
     {
-      title: 'Simplifed TG Commands',
+      title: 'Simplified TG Commands',
       description: 'Sophisticated trading commands optimized for Solana DeFi markets and token pairs.',
       icon: (
         <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -126,7 +126,7 @@ export default function Home(): ReactElement {
   ]
 
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-black text-white">
       {/* Navigation */}
       <nav className="fixed w-full bg-black/50 backdrop-blur-xl z-50 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -204,6 +204,9 @@ export default function Home(): ReactElement {
                   : 'opacity-0 translate-y-8'
               }`}
               onClick={handleClick}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && handleClick()}
             >
               <div className="relative mx-auto w-[280px] sm:w-[300px] block transition-transform duration-300 hover:scale-[1.02] cursor-pointer">
                 {/* iPhone Frame */}
@@ -359,9 +362,9 @@ export default function Home(): ReactElement {
                   </svg>
                 </div>
                 <h3 className="text-lg font-medium text-white mb-2">{'Latency'}</h3>
-                <p className="text-3xl text-white">
+                <div className="text-3xl text-white">
                   <AnimatedCounter end={12} prefix="" suffix="ms" decimals={0} />
-                </p>
+                </div>
               </div>
             </div>
 

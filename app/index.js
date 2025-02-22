@@ -1,12 +1,12 @@
-// index.js
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Page from './Page'; // Adjust the import path if necessary
+import { createRoot } from 'react-dom/client';
+import Page from './Page'; // Adjust the path based on your project structure
 
-// Render the Page component into the root div
-ReactDOM.render(
+const container = document.getElementById('root'); // Ensure there's a div with id 'root' in your index.html
+const root = createRoot(container);
+
+root.render(
     <React.StrictMode>
         <Page />
-    </React.StrictMode>,
-    document.getElementById('root') // Ensure there's a div with id 'root' in your index.html
+    </React.StrictMode>
 );
