@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
+import type { ReactElement } from 'react'
 
 interface AnimatedCounterProps {
   end: number
@@ -10,7 +11,7 @@ interface AnimatedCounterProps {
   decimals?: number
 }
 
-function AnimatedCounter({ end, duration = 2000, prefix = '', suffix = '', decimals = 0 }: AnimatedCounterProps): JSX.Element {
+function AnimatedCounter({ end, duration = 2000, prefix = '', suffix = '', decimals = 0 }: AnimatedCounterProps): ReactElement {
   const [count, setCount] = useState<number>(0)
   const counterRef = useRef<HTMLDivElement>(null)
   const [hasAnimated, setHasAnimated] = useState<boolean>(false)
@@ -51,7 +52,7 @@ function AnimatedCounter({ end, duration = 2000, prefix = '', suffix = '', decim
   )
 }
 
-export default function Home(): JSX.Element {
+export default function Home(): ReactElement {
   const [isPhoneVisible, setIsPhoneVisible] = useState(false)
   const [isFasterVisible, setIsFasterVisible] = useState(false)
   const phoneRef = useRef<HTMLDivElement>(null)
@@ -202,11 +203,9 @@ export default function Home(): JSX.Element {
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-8'
               }`}
+              onClick={handleClick}
             >
-              <button 
-                onClick={handleClick}
-                className="relative mx-auto w-[280px] sm:w-[300px] block transition-transform duration-300 hover:scale-[1.02] focus:outline-none"
-              >
+              <div className="relative mx-auto w-[280px] sm:w-[300px] block transition-transform duration-300 hover:scale-[1.02] cursor-pointer">
                 {/* iPhone Frame */}
                 <div className="relative rounded-[40px] bg-[#1b1b1b] p-[12px] shadow-xl">
                   {/* Inner iPhone bezel */}
@@ -233,11 +232,11 @@ export default function Home(): JSX.Element {
                           <div className="text-[10px] text-gray-400">online</div>
                         </div>
                       </div>
-                      <button className="p-1.5 hover:bg-gray-700/50 rounded-full">
+                      <div className="p-1.5 hover:bg-gray-700/50 rounded-full">
                         <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                         </svg>
-                      </button>
+                      </div>
                     </div>
                     
                     {/* Chat Messages */}
@@ -317,11 +316,11 @@ export default function Home(): JSX.Element {
                             readOnly
                           />
                         </div>
-                        <button className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-500 text-white">
+                        <div className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-500 text-white">
                           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M12 5l7 7-7 7" />
                           </svg>
-                        </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -332,7 +331,7 @@ export default function Home(): JSX.Element {
 
                 {/* Reflections and shadows */}
                 <div className="absolute -inset-x-20 -inset-y-10 bg-gradient-to-r from-blue-500 to-purple-600 opacity-20 blur-2xl rounded-full"></div>
-              </button>
+              </div>
             </div>
           </div>
         </div>
