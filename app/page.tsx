@@ -84,7 +84,7 @@ export default function Home() {
               <h1 className="flex items-center justify-center gap-4 text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] md:leading-tight mx-auto max-w-[320px] sm:max-w-none px-2 md:px-0">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 relative flex-shrink-0">
                   <Image
-                    src="https://sparklepony.netlify.app/logo2.png"
+                    src="https://i.postimg.cc/tgsqqzQJ/logo22.png"
                     alt="SparklePonyClub Logo"
                     fill
                     className="object-contain"
