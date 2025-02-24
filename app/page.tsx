@@ -13,8 +13,11 @@ export default function Home() {
     }
     
     try {
-      // Ensure the URL is properly formatted for Supabase REST API
-      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.replace(/\/$/, '');
+      // Extract project ID from database URL
+      const dbUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+      const projectId = dbUrl.match(/db\.(.*?)\.supabase/)?.[1];
+      const supabaseUrl = `https://${projectId}.supabase.co`;
+      
       const response = await fetch(`${supabaseUrl}/rest/v1/subscribers`, {
         method: 'POST',
         headers: {
@@ -30,8 +33,8 @@ export default function Home() {
       });
 
       if (!response.ok) {
-        const error = await response.json().catch(() => ({ message: 'Failed to subscribe' }));
-        throw new Error(error.message || 'Failed to subscribe');
+        const errorData = await response.json().catch(() => ({ message: 'Failed to subscribe' }));
+        throw new Error(errorData.message || 'Failed to subscribe');
       }
       
       if (messageEl) {
@@ -39,10 +42,10 @@ export default function Home() {
         messageEl.className = 'text-green-600 text-sm mt-2';
       }
       form.reset();
-    } catch (error) {
-      console.error('Subscription error:', error);
+    } catch (err) {
+      console.error('Subscription error:', err);
       if (messageEl) {
-        messageEl.textContent = error instanceof Error && error.message.includes('duplicate') 
+        messageEl.textContent = err instanceof Error && err.message.includes('duplicate') 
           ? 'You\'re already subscribed! 🎀' 
           : 'Please try again 🎀';
         messageEl.className = 'text-red-600 text-sm mt-2';
@@ -52,7 +55,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white overflow-hidden">
-      {/* Rest of your component remains exactly the same */}
+      {/* Animated background elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-2 md:-top-4 left-1/4 w-3 h-3 md:w-4 md:h-4 bg-pink-200 rounded-full animate-float" style={{ animationDelay: '0s' }} />
         <div className="absolute top-1/3 -right-2 md:-right-4 w-3 h-3 md:w-4 md:h-4 bg-purple-200 rounded-full animate-float" style={{ animationDelay: '0.5s' }} />
@@ -77,7 +80,7 @@ export default function Home() {
 
             {/* Title - improved mobile responsiveness */}
             <div className="relative">
-              <h1 className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] md:leading-tight mx-auto max-w-[320px] sm:max-w-none px-2 md:px-0">
+              <h1 className="text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] md:leading-tight mx-auto max-w-[300px] sm:max-w-none px-2 md:px-0">
                 <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-clip-text text-transparent animate-gradient break-words">
                   {'SparklePony\u00ADClub'}
                 </span>
