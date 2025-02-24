@@ -33,8 +33,7 @@ export default function Home() {
       });
 
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({ message: 'Failed to subscribe' }));
-        throw new Error(errorData.message || 'Failed to subscribe');
+        throw new Error('Failed to subscribe');
       }
       
       if (messageEl) {
