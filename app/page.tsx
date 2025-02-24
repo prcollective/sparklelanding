@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 export default function Home() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -77,9 +79,18 @@ export default function Home() {
               </span>
             </div>
 
-            {/* Title - improved mobile responsiveness */}
+            {/* Title with Logo - improved mobile responsiveness */}
             <div className="relative">
-              <h1 className="text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] md:leading-tight mx-auto max-w-[300px] sm:max-w-none px-2 md:px-0">
+              <h1 className="flex items-center justify-center gap-4 text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] md:leading-tight mx-auto max-w-[320px] sm:max-w-none px-2 md:px-0">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 relative flex-shrink-0">
+                  <Image
+                    src="https://sparklepony.netlify.app/logo2.png"
+                    alt="SparklePonyClub Logo"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
                 <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-clip-text text-transparent animate-gradient break-words">
                   {'SparklePony\u00ADClub'}
                 </span>
