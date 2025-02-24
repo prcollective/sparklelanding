@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BLAZERBot | Fastest Solana TG Trading Bot for Meme Coins",
-  description: "BLAZERBot | Fastest Solana TG Trading Bot for Meme Coins",
+  title: "SparklePonyClub",
+  description: "SparklePonyClub",
 };
 
 export default function RootLayout({
