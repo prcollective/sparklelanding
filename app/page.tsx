@@ -111,7 +111,7 @@ export default function Home() {
                     <input
                       type="email"
                       name="email"
-                      placeholder="Enter your email for creator early access"
+                      placeholder="Signup for airdrop"
                       className="w-full px-4 py-3 rounded-lg text-black bg-white/50 border-2 border-purple-100 focus:border-purple-500 focus:outline-none placeholder-black/40 text-sm md:text-base"
                       required
                     />
@@ -119,7 +119,7 @@ export default function Home() {
                       type="submit"
                       className="w-full sm:w-auto bg-black text-white font-bold px-6 py-3 rounded-lg hover:bg-black/90 transform transition-all hover:-translate-y-0.5 active:translate-y-0 hover:scale-105 text-sm md:text-base whitespace-nowrap"
                     >
-                      Join 🦄
+                      Join Airdrop 🦄
                     </button>
                   </div>
                   <div id="message" className="hidden text-center sm:text-left"></div>
